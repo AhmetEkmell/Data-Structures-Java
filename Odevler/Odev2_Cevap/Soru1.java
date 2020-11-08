@@ -97,7 +97,6 @@ class stack {
                 case "]":
                     kapali_ust3 = true;
                     break;
-                default: 
             }
             switch(sonraki){
                 case "(":
@@ -109,7 +108,6 @@ class stack {
                 case "[":
                     acik_sonraki3 = true;
                     break;
-                
             }
         }
         //Eğer en üst değer ile bir sonraki değer birbirini tamamlıyorsa o iki parantez de stack den çıkarılır
@@ -125,21 +123,17 @@ class stack {
             pop();
             pop();
         }
-
     }
-
 }
 
 public class Soru1 {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         boolean parantez_kontrol = false;
         
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("| Parantezlerin arasına virgül koyarak giriş yapınız |");
+        System.out.println("| Sadece Parantezlerin Girişini Yapınız |");
         String parantezler = sc.nextLine();
-        
         
         stack Stack = new stack(parantezler.length());
        
