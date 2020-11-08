@@ -138,18 +138,18 @@ public class Soru1 {
         Scanner sc = new Scanner(System.in);
         
         System.out.println("| Parantezlerin arasına virgül koyarak giriş yapınız |");
-        String k = sc.nextLine();
+        String parantezler = sc.nextLine();
         
-        stack s = new stack(k.length());
+        
+        stack Stack = new stack(parantezler.length());
        
-        String dizi[] = k.split(",");
-        for (int i = 0; i < dizi.length; i++) {
-            s.push(dizi[i]);
+        for(char parantez : parantezler.toCharArray()){
+            Stack.push(parantez+"");
         }
         
-        if(s.isEmpty())
+        if(Stack.isEmpty())
             parantez_kontrol = true;
-        else if(!s.isEmpty())
+        else if(!Stack.isEmpty())
             parantez_kontrol = false;
         
         System.out.println("Parantez Doğruluk testi sonucu => "+parantez_kontrol);
