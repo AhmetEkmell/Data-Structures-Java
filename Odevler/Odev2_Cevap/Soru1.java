@@ -44,8 +44,7 @@ class stack {
             if(sonrakiDeger!=null){
                 if(dizi[ustDeger].equals(")") || dizi[ustDeger].equals("}") || dizi[ustDeger].equals("]"))
                     parantez_kontrol(dizi[ustDeger], sonrakiDeger);
-            }
-                
+            }     
         } else {
             System.out.println("Stack/Yığıt dolu!");
         }
@@ -107,7 +106,7 @@ class stack {
                     break;
                 case "[":
                     acik_sonraki3 = true;
-                    break;
+                    break;        
             }
         }
         //Eğer en üst değer ile bir sonraki değer birbirini tamamlıyorsa o iki parantez de stack den çıkarılır
@@ -124,6 +123,20 @@ class stack {
             pop();
         }
     }
+    
+    static Boolean karakterKontrol(char karakter){
+        switch(karakter){
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '[':
+            case ']':
+                return true;
+            default:
+                return false;
+        }
+    }
 }
 
 public class Soru1 {
@@ -138,7 +151,9 @@ public class Soru1 {
         stack Stack = new stack(parantezler.length());
        
         for(char parantez : parantezler.toCharArray()){
-            Stack.push(parantez+"");
+            if(stack.karakterKontrol(parantez) == true){
+                Stack.push(parantez+"");
+            }
         }
         
         if(Stack.isEmpty())
@@ -147,5 +162,8 @@ public class Soru1 {
             parantez_kontrol = false;
         
         System.out.println("Parantez Doğruluk testi sonucu => "+parantez_kontrol);
+        System.out.print("Stack de yer alan parantezler: ");
+        Stack.listele();
+        System.out.println();
     }
 }
